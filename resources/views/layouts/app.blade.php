@@ -9,8 +9,15 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -87,6 +94,9 @@
                             <li class="list-group-item">
                                 <a href="{{ route('category.create') }}">Create a new category</a>
                             </li>
+                            <li class="list-group-item">
+                                <a href="{{ route('post.create') }}">Create a new post</a>
+                            </li>
                         </ul>
                     </div>
                     <div class="col-lg-8">
@@ -101,5 +111,10 @@
             </div>
         </main>
     </div>
+    <script>
+     @if(Session::has('success'))
+        toastr.success('{{ Session::get('success') }}');
+     @endif
+    </script>
 </body>
 </html>

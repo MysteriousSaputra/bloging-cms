@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
+@include('include.validationerror')
+
     <div class="card">
         <div class="card-header">
             Create a new category
