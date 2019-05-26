@@ -73,7 +73,32 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="container">
+                <div class="row">
+                    @if (Auth::check())
+                    <div class="col-lg-4">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <a href="{{ route('home') }}">Home</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="{{ route('categories') }}">Categories</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="{{ route('category.create') }}">Create a new category</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-8">
+                        @yield('content')
+                    </div>
+                    @else
+                        <div class="col-lg-12">
+                            @yield('content')
+                        </div>
+                    @endif
+                </div>
+            </div>
         </main>
     </div>
 </body>
